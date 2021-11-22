@@ -1,15 +1,25 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <Header title="Welcome to Your Vue.js App"/>
+  <Tasks :tasks="tasks" />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Header from './components/Header.vue'
+import Tasks from "./components/Tasks.vue"
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Header,
+    Tasks
+  },
+  data(){
+    return{
+      tasks: []
+    }
+  },
+  created() {
+    this.tasks = [{id:1, text: "submit todo app", day: "November 17th at 11:50pm", reminder:true,}, {id:2, text: "make todo app", day: "November 12th at 11:50pm", reminder:true,}]
   }
 }
 </script>
@@ -20,7 +30,9 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #d2d7db;
+  background-color: #2d3436;
   margin-top: 60px;
 }
+
 </style>
