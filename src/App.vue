@@ -1,25 +1,55 @@
 <template>
-  <Header title="Welcome to Your Vue.js App"/>
-  <Tasks :tasks="tasks" />
+  <Header @toggle-add-task="toggleAddTask" 
+  title="To-Do List" 
+  :showAddTask="showAddTask"/>
+  <div v-if="showAddTask">
+    <AddTask @add-task="addTask"/>
+  </div>
+  <Tasks @toggle-reminder="toggleReminder" 
+  @delete-task="deleteTask" :tasks="tasks" />
 </template>
 
 <script>
 import Header from './components/Header.vue'
 import Tasks from "./components/Tasks.vue"
+import AddTask from "./components/AddTask.vue"
 
 export default {
   name: 'App',
   components: {
     Header,
-    Tasks
+    Tasks,
+    AddTask
   },
   data(){
     return{
-      tasks: []
+      tasks: [],
+      showAddTask: false
+    }
+  },
+  methods: {
+    toggleAddTask(){
+      this.showAddTask = !this.showAddTask
+    },
+    addTask(task){
+      this.tasks = [...this.tasks, task]
+    },
+    deleteTask(id){
+      if (confirm("Are you sure you want to delete this task?")){
+      this.tasks = this.tasks.filter(task => task.id !== id)
+    }
+    },
+    toggleReminder(id){
+      this.tasks = this.tasks.map(task => {
+        if (task.id === id){
+          task.reminder = !task.reminder
+        }
+        return task
+      })
     }
   },
   created() {
-    this.tasks = [{id:1, text: "submit todo app", day: "November 17th at 11:50pm", reminder:true,}, {id:2, text: "make todo app", day: "November 12th at 11:50pm", reminder:true,}]
+    this.tasks = [{id:1, text: "submit todo app", day: "November 17th at 11:50pm", reminder:true,}, {id:2, text: "make todo app", day: "November 12th at 11:50pm", reminder:false,}]
   }
 }
 </script>
