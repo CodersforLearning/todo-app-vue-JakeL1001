@@ -3,11 +3,12 @@
     <form @submit="onSubmit" class="add-form">
     <div class="form-control">
       <label>Task</label>
-      <input type="text" v-model="text" name="text" placeholder="Add Task" />
+      <input id="Taskinput" type="text" v-model="text" name="text" placeholder="Add Task" />
     </div>
     <div class="form-control">
       <label>Day & Time</label>
       <input
+        id="Dayinput"
         type="text"
         v-model="day"
         name="day"
@@ -15,8 +16,8 @@
       />
     </div>
     <div class="form-control form-control-check">
-      <label>Set Reminder</label>
-      <input type="checkbox" v-model="reminder" name="reminder" />
+      <label>Set completed</label>
+      <input id="checkbox" type="checkbox" v-model="completed" name="completed" />
     </div>
 
     <input type="submit" value="Save Task" class="btn btn-block" />
@@ -31,7 +32,7 @@ export default {
         return {
             text: "",
             day: "",
-            reminder: false
+            completed: false
         };
     },
     methods: {
@@ -46,18 +47,25 @@ export default {
                 id: Math.floor(Math.random()* 1000000),
                 text: this.text,
                 day: this.day,
-                reminder: this.reminder
+                completed: this.completed
             }
             this.$emit("add-task", newTask);
             this.text = "";
             this.day = "";
-            this.reminder = false;
+            this.completed = false;
         }
     }
 }
 </script>
 
 <style scoped>
+.add-form{
+    
+    background-color: #1a1c1d;
+    padding: 20px;
+    border-radius: 5px;
+    margin: auto;
+}
 .form-container {
   display: flex;
   background-color: #262a2b;
@@ -68,9 +76,6 @@ export default {
   align-items: center;
   justify-content: center;
 }
-.add-form {
-  margin-bottom: 40px;
-}
 .form-control {
   margin: 20px 0;
 }
@@ -78,22 +83,25 @@ export default {
   display: block;
 }
 .form-control input {
-  width: 100%;
+  border-radius: 5px;
   height: 40px;
   margin: 5px;
-  padding: 3px 7px;
   font-size: 17px;
 }
 .form-control-check {
+  border-radius: 5px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
 .form-control-check label {
   flex: 1;
 }
 .form-control-check input {
-  flex: 2;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
   height: 20px;
 }
 </style>

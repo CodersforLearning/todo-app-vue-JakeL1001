@@ -5,7 +5,7 @@
   <div v-if="showAddTask">
     <AddTask @add-task="addTask"/>
   </div>
-  <Tasks @toggle-reminder="toggleReminder" 
+  <Tasks @toggle-completed="togglecompleted" 
   @delete-task="deleteTask" :tasks="tasks" />
 </template>
 
@@ -39,17 +39,17 @@ export default {
       this.tasks = this.tasks.filter(task => task.id !== id)
     }
     },
-    toggleReminder(id){
+    togglecompleted(id){
       this.tasks = this.tasks.map(task => {
         if (task.id === id){
-          task.reminder = !task.reminder
+          task.completed = !task.completed
         }
         return task
       })
     }
   },
   created() {
-    this.tasks = [{id:1, text: "submit todo app", day: "November 17th at 11:50pm", reminder:true,}, {id:2, text: "make todo app", day: "November 12th at 11:50pm", reminder:false,}]
+    this.tasks = [{id:1, text: "submit todo app", day: "November 17th at 11:50pm", completed:true,}, {id:2, text: "make todo app", day: "November 12th at 11:50pm", completed:false,}]
   }
 }
 </script>

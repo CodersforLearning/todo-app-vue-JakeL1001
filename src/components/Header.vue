@@ -27,7 +27,6 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 header{
-  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -35,7 +34,7 @@ div.Header{
   background-color: #262a2b;
   border-radius: 5px;
   padding: 10px;
-  margin: auto;
+  margin: 10px auto 10px auto;
   width: 80%;
   align-items: center;
   justify-content: center;

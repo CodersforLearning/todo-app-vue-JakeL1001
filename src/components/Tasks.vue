@@ -2,7 +2,7 @@
     <div class="task-container">
         <div class="task-list">
     <div class="task" :key="task.id" v-for="task in tasks">
-        <Task @toggle-reminder="$emit('toggle-reminder',task.id)" @delete-task="$emit('delete-task', task.id)" :task="task" />
+        <Task @toggle-completed="$emit('toggle-completed',task.id)" @delete-task="$emit('delete-task', task.id)" :task="task" />
     </div>
     </div>
     </div>
