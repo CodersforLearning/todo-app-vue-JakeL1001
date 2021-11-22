@@ -1,6 +1,6 @@
 <template>
   <Header title="Welcome to Your Vue.js App"/>
-  <Tasks :tasks="tasks" />
+  <Tasks @delete-task="deleteTask" :tasks="tasks" />
 </template>
 
 <script>
@@ -18,8 +18,13 @@ export default {
       tasks: []
     }
   },
+  methods: {
+    deleteTask(id){
+      this.tasks = this.tasks.filter(task => task.id !== id)
+    }
+  },
   created() {
-    this.tasks = [{id:1, text: "submit todo app", day: "November 17th at 11:50pm", reminder:true,}, {id:2, text: "make todo app", day: "November 12th at 11:50pm", reminder:true,}]
+    this.tasks = [{id:1, text: "submit todo app", day: "November 17th at 11:50pm", reminder:true,}, {id:2, text: "make todo app", day: "November 12th at 11:50pm", reminder:false,}]
   }
 }
 </script>

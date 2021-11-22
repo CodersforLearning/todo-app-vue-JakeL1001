@@ -3,6 +3,9 @@
 ## Project setup
 ```
 npm install
+npm install --save @fortawesome/fontawesome-svg-core 
+npm install --save @fortawesome/free-solid-svg-icons 
+npm install --save @fortawesome/vue-fontawesome
 ```
 
 ### Compiles and hot-reloads for development
