@@ -1,6 +1,10 @@
 <template>
-  <Header title="Welcome to Your Vue.js App"/>
-  <AddTask @add-task="addTask"/>
+  <Header @toggle-add-task="toggleAddTask" 
+  title="To-Do List" 
+  :showAddTask="showAddTask"/>
+  <div v-if="showAddTask">
+    <AddTask @add-task="addTask"/>
+  </div>
   <Tasks @toggle-reminder="toggleReminder" 
   @delete-task="deleteTask" :tasks="tasks" />
 </template>
@@ -19,10 +23,14 @@ export default {
   },
   data(){
     return{
-      tasks: []
+      tasks: [],
+      showAddTask: false
     }
   },
   methods: {
+    toggleAddTask(){
+      this.showAddTask = !this.showAddTask
+    },
     addTask(task){
       this.tasks = [...this.tasks, task]
     },

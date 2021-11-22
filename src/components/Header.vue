@@ -1,7 +1,11 @@
 <template>
   <header>
-    <h1>{{ title }}</h1>
-    <Button text="Add Task" color="green" />
+    <div class="Header">
+      <h1>{{ title }}</h1>
+      <Button @button-click="$emit('toggle-add-task')" 
+      :text="showAddTask ? 'Close' : 'Add Task'" 
+      :color="showAddTask ? 'red': 'green'" />
+    </div>
   </header>
 </template>
 
@@ -11,7 +15,8 @@ import Button from './Button'
 export default {
   name: 'Header',
   props: {
-    title: String
+    title: String,
+    showAddTask: Boolean
   },
   components: {
     Button
@@ -26,5 +31,11 @@ header{
   justify-content: center;
   align-items: center;
   margin-bottom: 20px;
+}
+div.Header{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
 }
 </style>
