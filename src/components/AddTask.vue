@@ -1,4 +1,5 @@
 <template>
+    <div class="form-container">
     <form @submit="onSubmit" class="add-form">
     <div class="form-control">
       <label>Task</label>
@@ -20,6 +21,7 @@
 
     <input type="submit" value="Save Task" class="btn btn-block" />
   </form>
+  </div>
 </template>
 
 <script>
@@ -56,5 +58,42 @@ export default {
 </script>
 
 <style scoped>
-
+.form-container {
+  display: flex;
+  background-color: #262a2b;
+  border-radius: 5px;
+  width: 80%;
+  margin: 10px auto 10px auto;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+}
+.add-form {
+  margin-bottom: 40px;
+}
+.form-control {
+  margin: 20px 0;
+}
+.form-control label {
+  display: block;
+}
+.form-control input {
+  width: 100%;
+  height: 40px;
+  margin: 5px;
+  padding: 3px 7px;
+  font-size: 17px;
+}
+.form-control-check {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.form-control-check label {
+  flex: 1;
+}
+.form-control-check input {
+  flex: 2;
+  height: 20px;
+}
 </style>

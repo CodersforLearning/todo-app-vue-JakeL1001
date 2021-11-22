@@ -30,12 +30,18 @@ header{
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20px;
 }
 div.Header{
-  display: flex;
-  width: 100%;
+  background-color: #262a2b;
+  border-radius: 5px;
+  padding: 10px;
+  margin: auto;
+  width: 80%;
   align-items: center;
   justify-content: center;
+}
+h1{
+  font-size: 2em;
+  margin: 0;
 }
 </style>

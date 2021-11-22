@@ -62,7 +62,6 @@ export default {
   text-align: center;
   color: #d2d7db;
   background-color: #2d3436;
-  margin-top: 60px;
 }
 
 </style>
