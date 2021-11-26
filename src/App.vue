@@ -59,7 +59,7 @@ export default {
     }
   },
   created() {
-    this.tasks = [{id:1, text: "submit todo app", day: "November 17th at 11:50pm", completed:true,}, {id:2, text: "make todo app", day: "November 12th at 11:50pm", completed:false,}]
+    this.tasks = [{id:1, text: "Example Task!", day: "Wed Nov 17 2021", completed:true,}, {id:2, text: "Double Click Me!", day: "Fri Nov 12 2021", completed:false,}]
   }
 }
 </script>

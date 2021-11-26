@@ -5,7 +5,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "deploy": "node scripts/gh-pages-deploy.js"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
@@ -15,7 +16,8 @@
     "litepie-datepicker": "^1.0.14",
     "vue": "^3.0.0",
     "vue3-date-time-picker": "^2.3.6",
-    "vuejs-datepicker": "^1.6.2"
+    "vuejs-datepicker": "^1.6.2",
+    "execa": "latest"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
