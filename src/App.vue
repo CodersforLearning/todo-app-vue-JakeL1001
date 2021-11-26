@@ -1,11 +1,13 @@
 <template>
-  <Header @toggle-add-task="toggleAddTask" 
+  <Header @toggle-add-task="toggleAddTask"
+  @clear-list="clearList"
+  @clear-completed="clearCompleted"
   title="To-Do List" 
   :showAddTask="showAddTask"/>
   <div v-if="showAddTask">
     <AddTask @add-task="addTask"/>
   </div>
-  <Tasks @toggle-reminder="toggleReminder" 
+  <Tasks @toggle-completed="togglecompleted" 
   @delete-task="deleteTask" :tasks="tasks" />
 </template>
 
@@ -31,6 +33,14 @@ export default {
     toggleAddTask(){
       this.showAddTask = !this.showAddTask
     },
+    clearList(){
+      if (confirm("Are you sure you want to clear all tasks?")){
+      this.tasks = []
+      }
+    },
+    clearCompleted(){
+      this.tasks = this.tasks.filter(task => !task.completed)
+    },
     addTask(task){
       this.tasks = [...this.tasks, task]
     },
@@ -39,17 +49,17 @@ export default {
       this.tasks = this.tasks.filter(task => task.id !== id)
     }
     },
-    toggleReminder(id){
+    togglecompleted(id){
       this.tasks = this.tasks.map(task => {
         if (task.id === id){
-          task.reminder = !task.reminder
+          task.completed = !task.completed
         }
         return task
       })
     }
   },
   created() {
-    this.tasks = [{id:1, text: "submit todo app", day: "November 17th at 11:50pm", reminder:true,}, {id:2, text: "make todo app", day: "November 12th at 11:50pm", reminder:false,}]
+    this.tasks = [{id:1, text: "submit todo app", day: "November 17th at 11:50pm", completed:true,}, {id:2, text: "make todo app", day: "November 12th at 11:50pm", completed:false,}]
   }
 }
 </script>
@@ -62,7 +72,6 @@ export default {
   text-align: center;
   color: #d2d7db;
   background-color: #2d3436;
-  margin-top: 60px;
 }
 
 </style>

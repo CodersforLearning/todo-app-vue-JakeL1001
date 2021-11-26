@@ -21,5 +21,14 @@ export default {
 </script>
 
 <style scoped>
-
+button{
+    background-color: #262a2b;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+    color: #202122;
+    font-size: 1.5em;
+    padding: 10px;
+    margin: 10px;
+}
 </style>
