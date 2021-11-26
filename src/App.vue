@@ -1,5 +1,7 @@
 <template>
-  <Header @toggle-add-task="toggleAddTask" 
+  <Header @toggle-add-task="toggleAddTask"
+  @clear-list="clearList"
+  @clear-completed="clearCompleted"
   title="To-Do List" 
   :showAddTask="showAddTask"/>
   <div v-if="showAddTask">
@@ -30,6 +32,14 @@ export default {
   methods: {
     toggleAddTask(){
       this.showAddTask = !this.showAddTask
+    },
+    clearList(){
+      if (confirm("Are you sure you want to clear all tasks?")){
+      this.tasks = []
+      }
+    },
+    clearCompleted(){
+      this.tasks = this.tasks.filter(task => !task.completed)
     },
     addTask(task){
       this.tasks = [...this.tasks, task]

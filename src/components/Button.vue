@@ -26,7 +26,7 @@ button{
     border-radius: 5px;
     align-items: center;
     justify-content: center;
-    color: #d2d7db;
+    color: #202122;
     font-size: 1.5em;
     padding: 10px;
     margin: 10px;

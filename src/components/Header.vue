@@ -5,6 +5,12 @@
       <Button @button-click="$emit('toggle-add-task')" 
       :text="showAddTask ? 'Close' : 'Add Task'" 
       :color="showAddTask ? 'red': 'green'" />
+      <Button @button-click="$emit('clear-list')"
+      :text="'Clear List'"
+      :color="'red'" />
+      <Button @button-click="$emit('clear-completed')"
+      :text="'Clear Completed Tasks'"
+      :color="'orange'" />
     </div>
   </header>
 </template>

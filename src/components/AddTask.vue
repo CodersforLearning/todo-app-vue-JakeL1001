@@ -3,16 +3,17 @@
     <form @submit="onSubmit" class="add-form">
     <div class="form-control">
       <label>Task</label>
-      <input id="Taskinput" type="text" v-model="text" name="text" placeholder="Add Task" />
+      <input id="Taskinput" type="text" v-model="text" name="text" placeholder="Task Name" />
     </div>
     <div class="form-control">
       <label>Day & Time</label>
-      <input
-        id="Dayinput"
-        type="text"
-        v-model="day"
-        name="day"
-        placeholder="Add Day & Time"
+      <DatePicker v-model="date" 
+      format="dd-M-Y" 
+      dark 
+      :minDate="new Date()" 
+      autoApply 
+      :is24="false" 
+      :enableTimePicker="false"
       />
     </div>
     <div class="form-control form-control-check">
@@ -26,7 +27,11 @@
 </template>
 
 <script>
+import DatePicker from "vue3-date-time-picker";
+import "vue3-date-time-picker/dist/main.css";
+
 export default {
+  components: {DatePicker},
     name: "AddTask",
     data() {
         return {
@@ -38,7 +43,7 @@ export default {
     methods: {
         onSubmit(e){
             e.preventDefault();
-
+            var returndate = this.date.toString().substring(0,15)
             if (!this.text) {
                 alert("Please add a task");
                 return
@@ -46,7 +51,7 @@ export default {
             const newTask = {
                 id: Math.floor(Math.random()* 1000000),
                 text: this.text,
-                day: this.day,
+                day: returndate,
                 completed: this.completed
             }
             this.$emit("add-task", newTask);
@@ -55,14 +60,14 @@ export default {
             this.completed = false;
         }
     }
+    
 }
 </script>
 
 <style scoped>
 .add-form{
-    
     background-color: #1a1c1d;
-    padding: 20px;
+    padding: 0px 20px 20px 20px;
     border-radius: 5px;
     margin: auto;
 }
