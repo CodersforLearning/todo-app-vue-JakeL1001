@@ -1,4 +1,5 @@
 <template>
+<!-- template for the Add Task form -->
     <div class="form-container">
     <form @submit="onSubmit" class="add-form">
     <div class="form-control">
@@ -7,6 +8,7 @@
     </div>
     <div class="form-control">
       <label>Day & Time</label>
+      <!-- DatePicker Component for choosing the date for the todo task -->
       <DatePicker v-model="date" 
       format="dd-M-Y" 
       dark 
@@ -42,18 +44,22 @@ export default {
     },
     methods: {
         onSubmit(e){
+          // prevent default form submission
             e.preventDefault();
+            // format the selected date properly
             var returndate = this.date.toString().substring(0,15)
             if (!this.text) {
                 alert("Please add a task");
                 return
             }
+            // add the task to the database
             const newTask = {
                 id: Math.floor(Math.random()* 1000000),
                 text: this.text,
                 day: returndate,
                 completed: this.completed
             }
+            // add the task to the database
             this.$emit("add-task", newTask);
             this.text = "";
             this.day = "";
