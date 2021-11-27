@@ -3,7 +3,10 @@
     <form @submit="onSubmit" class="add-form">
     <div class="form-control">
       <label>Task</label>
-      <input id="Taskinput" type="text" v-model="text" name="text" placeholder="Task Name" />
+      <input id="Taskinput" type="text"
+       v-model="text" 
+       name="text"
+      placeholder="Task Name" />
     </div>
     <div class="form-control">
       <label>Day & Time</label>
@@ -88,6 +91,7 @@ export default {
   display: block;
 }
 .form-control input {
+  color: #d2d7db;
   border-radius: 5px;
   height: 40px;
   margin: 5px;
@@ -108,5 +112,9 @@ export default {
   align-items: center;
   width: 20px;
   height: 20px;
+}
+#Taskinput{
+  color: "white";
+  background-color: #212121;  
 }
 </style>

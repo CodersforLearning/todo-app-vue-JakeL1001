@@ -1,7 +1,7 @@
 <template>
     <div class="task-container">
         <div class="task-list" v-if="tasks.length">
-            Double click tasks to mark them as completed
+            Double click tasks to mark them as completed!
             <div class="task" :key="task.id" v-for="task in tasks">
                 <Task @toggle-completed="$emit('toggle-completed',task.id)" @delete-task="$emit('delete-task', task.id)" :task="task" />
     </div>
