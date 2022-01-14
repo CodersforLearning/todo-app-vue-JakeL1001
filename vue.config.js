@@ -1,3 +1,3 @@
 module.exports = {
-  publicPath: process.env.NODE_ENV === "production" ? "/todo-app-vue-JakeL1001/" : "/",
+  publicPath: process.env.NODE_ENV === "production" ? "/todo-app-vue-JakeLDev/" : "/",
 };
